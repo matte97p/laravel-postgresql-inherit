@@ -1,6 +1,6 @@
 <?php
 
-namespace jumper423\LaravelDataBase;
+namespace RishiRamawat\PostgresSchema;
 
 use Illuminate\Database\Schema\Grammars\PostgresGrammar as BasePostgresGrammar;
 use Illuminate\Support\Fluent;
@@ -19,11 +19,12 @@ class PostgresGrammar extends BasePostgresGrammar
     {
         $inheritedTables = implode(', ', $this->getInheritedTables($blueprint));
         $sql = parent::compileCreate($blueprint, $command);
-        if (empty($inheritedTables)) {
-            return $sql;
-        } else {
-            return $sql . " inherits ($inheritedTables)";
+
+        if (!empty($inheritedTables)) {
+            return $sql . " inherits ({$inheritedTables})";
         }
+
+        return $sql;
     }
 
     /**
@@ -35,10 +36,12 @@ class PostgresGrammar extends BasePostgresGrammar
     protected function getInheritedTables(BaseBlueprint $blueprint)
     {
         $tables = [];
+
         foreach ($blueprint->getInheritedTables() as $table) {
             //$sql = $this->wrapTable($table);
             $tables[] = $table;
         }
+
         return $tables;
     }
 }

@@ -1,6 +1,6 @@
 <?php 
 
-namespace jumper423\LaravelDataBase;
+namespace RishiRamawat\PostgresSchema;
 
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Contracts\Foundation\Application as App;
@@ -13,16 +13,6 @@ class PostgresqlSchemaServiceProvider extends ServiceProvider
      * @var bool
      */
     protected $defer = false;
-
-    /**
-     * Bootstrap the application events.
-     *
-     * @return void
-     */
-    public function boot()
-    {
-        //$this->package('thibaud-dauce/postgresql-schema');
-    }
 
     /**
      * Register the service provider.

@@ -1,6 +1,6 @@
 <?php
 
-namespace jumper423\LaravelDataBase;
+namespace RishiRamawat\PostgresSchema;
 
 use Illuminate\Database\PostgresConnection as BasePostgresConnection;
 
@@ -27,6 +27,7 @@ class PostgresConnection extends BasePostgresConnection
         $builder->blueprintResolver(function ($table, $callback) {
             return new Blueprint($table, $callback);
         });
+
         return $builder;
     }
 }

@@ -1,5 +1,5 @@
 {
-    "name": "jumper423/laravel-postgresql-inherit",
+    "name": "rishi-ramawat/laravel-postgresql-inherit",
     "description": "Add inheritance in postgresql tables",
     "license": "MIT",
     "keywords": ["laravel", "postgres", "postresql", "database", "migrations", "inheritance"],
@@ -15,16 +15,16 @@
     ],
     "require": {
         "php": ">=5.4.0",
-        "illuminate/support": "5.2.*",
-        "illuminate/database": "5.2.*"
+        "illuminate/support": "~5.2",
+        "illuminate/database": "~5.2"
     },
     "require-dev": {
         "mockery/mockery": "~0.9",
-        "phpunit/phpunit": "~4.0"
+        "phpunit/phpunit": "^5.7"
     },
     "autoload": {
         "psr-4": {
-            "jumper423\\LaravelDataBase\\": "src/"
+            "RishiRamawat\\PostgresSchema\\": "src/"
         }
     },
     "minimum-stability": "stable"

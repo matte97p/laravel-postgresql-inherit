@@ -1,6 +1,6 @@
 <?php 
 
-namespace jumper423\LaravelDataBase;
+namespace RishiRamawat\PostgresSchema;
 
 use Illuminate\Database\Schema\Blueprint as BaseBlueprint;
 
@@ -28,7 +28,7 @@ class Blueprint extends BaseBlueprint
      *
      * @param  string $name
      */
-    public function addInheritedTable($name)
+    public function inherits($name)
     {
         $this->inheritedTables[] = $name;
     }

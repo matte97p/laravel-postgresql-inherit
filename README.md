@@ -6,24 +6,36 @@ PostgresqlSchema
 Add inheritance in postgresql tables
 
 ## Installation
-[PHP](https://php.net) 5.4+ and [Laravel](http://laravel.com) 5.2+ are required.
+[PHP](https://php.net) 5.4+ and [Laravel](https://laravel.com) 5.2+ are required.
 
-To get the latest version of PostgreSQL Schema, simply require `"jumper423/laravel-postgresql-inherit": "2.*"` in your `composer.json` file. You'll then need to run `composer install` or `composer update` to download it and have the autoloader updated.
+To get the latest version of PostgreSQL Schema, simply run this command
+```shell
+composer require "rishi-ramawat/laravel-postgresql-inherit ~2.1"
+```
 
 Once PostgreSQL Schema is installed, you need to register the service provider. Open up `app/config/app.php` and add the following to the `providers` key.
 
-* `'ThibaudDauce\PostgresqlSchema\PostgresqlSchemaServiceProvider'`
+```php
+RishiRamawat\PostgresSchema\PostgresqlSchemaServiceProvider::class
+```
 
 ## Usage
 
-In migration file when using a postgresql database, you can use the new method `addInheritedTable`:
+In migration file when using a postgresql database, you can use the new method `inherits()`:
 
 ```php
-<?php
 
-Schema::create('test', function(Blueprint $table) {
-
+Schema::create('cities', function(Blueprint $table) {
   $table->increments('id');
-  $table->addInheritedTable('users');
+  $table->string('name');
+  $table->double('population');
+  $table->integer('altitude')->comment('In Feet');
 });
+
+Schema::create('capitals', function(Blueprint $table) {
+    $table->string('state');
+    // Make capitals table inherits all the columns of its parent table, cities
+    $table->inherits('cities');
+});
+
 ```
