@@ -1,10 +1,10 @@
-<?php 
+<?php
 
 namespace RishiRamawat\PostgresSchema;
 
 use Illuminate\Database\Schema\Blueprint as BaseBlueprint;
 
-class Blueprint extends BaseBlueprint
+class PostgresBlueprint extends BaseBlueprint
 {
     /**
      * The inherited tables that should be added to the table.

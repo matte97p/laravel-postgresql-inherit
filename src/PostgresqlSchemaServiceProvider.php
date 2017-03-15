@@ -1,9 +1,10 @@
-<?php 
+<?php
 
 namespace RishiRamawat\PostgresSchema;
 
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Contracts\Foundation\Application as App;
+use Illuminate\Database\Connection;
 
 class PostgresqlSchemaServiceProvider extends ServiceProvider
 {
@@ -12,7 +13,7 @@ class PostgresqlSchemaServiceProvider extends ServiceProvider
      *
      * @var bool
      */
-    protected $defer = false;
+    protected $defer = true;
 
     /**
      * Register the service provider.
@@ -21,8 +22,8 @@ class PostgresqlSchemaServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        $this->app->singleton('db.connection.pgsql', function (App $app, array $parameters) {
-            list($connection, $database, $prefix, $config) = $parameters;
+        Connection::resolverFor('pgsql', function ($connection, $database, $prefix, $config) {
+
             return new PostgresConnection($connection, $database, $prefix, $config);
         });
     }
@@ -34,6 +35,6 @@ class PostgresqlSchemaServiceProvider extends ServiceProvider
      */
     public function provides()
     {
-        return [];
+        return [Connection::class];
     }
 }

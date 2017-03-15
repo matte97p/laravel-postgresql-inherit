@@ -25,7 +25,7 @@ class PostgresConnection extends BasePostgresConnection
     {
         $builder = parent::getSchemaBuilder();
         $builder->blueprintResolver(function ($table, $callback) {
-            return new Blueprint($table, $callback);
+            return new PostgresBlueprint($table, $callback);
         });
 
         return $builder;
