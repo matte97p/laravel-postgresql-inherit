@@ -6,17 +6,22 @@ PostgresqlSchema
 Add inheritance in postgresql tables
 
 ## Installation
-[PHP](https://php.net) 5.4+ and [Laravel](https://laravel.com) 5.2+ are required.
+[PHP](https://php.net) **5.4+** and [Laravel](https://laravel.com) **5.2+** are required.
 
-To get the latest version of PostgreSQL Schema, simply run this command
+For Laravel Versions **5.2.*** & **5.3.***, run the following command to install this package via composer
 ```shell
-composer require "rishi-ramawat/laravel-postgresql-inherit ~2.1"
+composer require "rishi-ramawat/laravel-postgresql-inherit ~2.1.0"
 ```
 
-Once PostgreSQL Schema is installed, you need to register the service provider. Open up `app/config/app.php` and add the following to the `providers` key.
+For Laravel Versions **5.4+**, run the following command to install this package via composer
+```shell
+composer require "rishi-ramawat/laravel-postgresql-inherit ~2.2"
+```
+
+Once PostgreSQL Schema is installed, you need to register the service provider. Open up `config/app.php` and add the following to the `providers` array.
 
 ```php
-RishiRamawat\PostgresSchema\PostgresqlSchemaServiceProvider::class
+RishiRamawat\PostgresSchema\PostgresqlSchemaServiceProvider::class,
 ```
 
 ## Usage
