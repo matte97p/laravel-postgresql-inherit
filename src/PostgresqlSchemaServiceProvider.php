@@ -2,9 +2,8 @@
 
 namespace RishiRamawat\PostgresSchema;
 
-use Illuminate\Support\ServiceProvider;
-use Illuminate\Contracts\Foundation\Application as App;
 use Illuminate\Database\Connection;
+use Illuminate\Support\ServiceProvider;
 
 class PostgresqlSchemaServiceProvider extends ServiceProvider
 {
@@ -23,7 +22,6 @@ class PostgresqlSchemaServiceProvider extends ServiceProvider
     public function register()
     {
         Connection::resolverFor('pgsql', function ($connection, $database, $prefix, $config) {
-
             return new PostgresConnection($connection, $database, $prefix, $config);
         });
     }
