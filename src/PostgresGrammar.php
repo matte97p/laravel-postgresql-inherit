@@ -2,9 +2,9 @@
 
 namespace RishiRamawat\PostgresSchema;
 
-use Illuminate\Database\Schema\Grammars\PostgresGrammar as BasePostgresGrammar;
 use Illuminate\Support\Fluent;
 use Illuminate\Database\Schema\Blueprint as BaseBlueprint;
+use Illuminate\Database\Schema\Grammars\PostgresGrammar as BasePostgresGrammar;
 
 class PostgresGrammar extends BasePostgresGrammar
 {
@@ -13,6 +13,7 @@ class PostgresGrammar extends BasePostgresGrammar
      *
      * @param  BaseBlueprint $blueprint
      * @param  \Illuminate\Support\Fluent $command
+     *
      * @return string
      */
     public function compileCreate(BaseBlueprint $blueprint, Fluent $command)
@@ -21,7 +22,7 @@ class PostgresGrammar extends BasePostgresGrammar
         $sql = parent::compileCreate($blueprint, $command);
 
         if (!empty($inheritedTables)) {
-            return $sql . " inherits ({$inheritedTables})";
+            return $sql." inherits ({$inheritedTables})";
         }
 
         return $sql;
@@ -31,6 +32,7 @@ class PostgresGrammar extends BasePostgresGrammar
      * Compile the blueprint's inherits definitions.
      *
      * @param  BaseBlueprint $blueprint
+     *
      * @return array
      */
     protected function getInheritedTables(BaseBlueprint $blueprint)

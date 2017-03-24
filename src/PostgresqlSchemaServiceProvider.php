@@ -1,4 +1,4 @@
-<?php 
+<?php
 
 namespace RishiRamawat\PostgresSchema;
 
@@ -23,6 +23,7 @@ class PostgresqlSchemaServiceProvider extends ServiceProvider
     {
         $this->app->singleton('db.connection.pgsql', function (App $app, array $parameters) {
             list($connection, $database, $prefix, $config) = $parameters;
+
             return new PostgresConnection($connection, $database, $prefix, $config);
         });
     }
