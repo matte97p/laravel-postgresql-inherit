@@ -23,6 +23,11 @@ For Laravel Versions **7.x**, run the following command to install this package 
 composer require "rishi-ramawat/laravel-postgresql-inherit ~2.4"
 ```
 
+For Laravel Versions **8.x**, run the following command to install this package via composer
+```shell
+composer require "rishi-ramawat/laravel-postgresql-inherit ~2.5"
+```
+
 Once PostgreSQL Schema is installed, you need to register the service provider. Open up `config/app.php` and add the following to the `providers` array.
 
 ```php
