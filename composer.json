@@ -1,5 +1,6 @@
 {
     "name": "matte97p/laravel-postgresql-inherit",
+    "version": "1.0.0",
     "description": "Add inheritance in postgresql tables",
     "license": "MIT",
     "keywords": ["laravel", "postgres", "postresql", "database", "migrations", "inheritance"],
